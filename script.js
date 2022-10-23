@@ -9,10 +9,9 @@ function getPlayerChoice() {
         getPlayerChoice();
     }
 }
-console.log(playerSelection) 
+console.log(`You chose ${playerSelection}.`) 
 
-
-let compSelection = getComputerChoice()
+let compSelection = getComputerChoice();
 function getComputerChoice() {
     let compChoice;
     const randomNum = Math.random()*3;
@@ -25,13 +24,30 @@ function getComputerChoice() {
     }
     return compChoice;
 }
-console.log(compSelection)
+console.log(`Computer chose ${compSelection}.`)
 
 
 function playRound() {
-    if (playerSelection.match(/^rock$/i) && compSelection.match(/^scissors$/i)) {
-        //player win comp lose
-    } else if (playerSelection.match(/^rock$/i) && compSelection.match(/^paper$/i)) {
+    if (playerSelection.toLowerCase() ==='rock' && compSelection.toLowerCase() ==='paper') {
         //comp win player lose
-    } 
+        console.log("You Lose! Paper beats Rock")
+    } else if (playerSelection.match(/^rock$/i) && compSelection.match(/^scissors$/i)) {
+        //player win comp lose
+        console.log("You Win! Rock beats Scissors")
+    } else if (playerSelection.match(/^paper$/i) && compSelection.match(/^rock$/i)) {
+        //player win comp lose
+        console.log("You Win! Paper beats Rock")
+    } else if (playerSelection.match(/^paper$/i) && compSelection.match(/^scissors$/i)) {
+        //comp win player lose
+        console.log("You Lose! Scissors beat Paper")
+    } else if (playerSelection.match(/^scissors$/i) && compSelection.match(/^rock$/i)) {
+        //comp win player lose
+        console.log("You Lose! Rock beats Scissors")
+    } else if (playerSelection.match(/^scissors$/i) && compSelection.match(/^paper$/i)) {
+        //player win comp lose
+        console.log("You Win! Scissors beat Paper")
+    } else {
+        console.log('It\'s a tie! Try again.')
+    }
 }
+playRound();
