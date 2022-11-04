@@ -19,22 +19,32 @@ function getComputerChoice() {
 
 let comp = 0;
 let player = 0;
+const result = document.querySelector('#result');
+
 function playRound(playerSelection) {
-    // getPlayerChoice();
     getComputerChoice();
 
     if (playerSelection ==='rock' && compSelection ==='paper' || 
     playerSelection === 'paper' && compSelection.match(/^scissors$/i) || 
     playerSelection === 'scissors' && compSelection.match(/^rock$/i)) {
         //comp win player lose
-        console.log(`You Lose! ${playerSelection} beats ${compSelection} ${++comp} ${player}`)
-
+        result.innerHTML = "<br>You Lose! " + playerSelection + " beats " + compSelection + "<br>Computer's score: " + ++comp + "<br>Your score: " + player
+        if (comp === 5) {
+            comp = 0;
+            player = 0;
+            result.innerHTML += "<br>Computer won the game."
+        }
     } else if (playerSelection === compSelection) {
-        console.log(`It\'s a tie! Try again. ${comp} ${player}`)
+        result.textContent = `You both chose ${compSelection}. It's a tie! Try again. Computer's score: ${comp} Your score: ${player}`
 
     } else {
         //player win comp lose
-        console.log(`You Win! ${playerSelection} beats ${compSelection} ${comp} ${++player}`)
+        result.textContent = `Computer chose ${compSelection}. ${playerSelection} beats ${compSelection}. You Win! Computer's score: ${comp} Your score: ${++player}`
+        if (player === 5) {
+            comp = 0;
+            player = 0;
+            result.textContent += ` You Won The Game.`
+        }
     } 
 }
 
