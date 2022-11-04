@@ -1,16 +1,3 @@
-/*
-let playerSelection;
-function getPlayerChoice() {
-    let playerChoice = prompt('choose Rock, Paper or Scissors!', 'rock');
-    if (playerChoice.match(/^(rock|paper|scissors)$/i)) {
-        // return playerChoice;
-        playerSelection = playerChoice;
-    } else {
-        alert('invalid input');
-        getPlayerChoice();
-    }
-    // console.log(`You chose ${playerSelection}.`) 
-}*/
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach(button => button.addEventListener('click', () => playRound(button.value)));
@@ -44,7 +31,7 @@ function playRound(playerSelection) {
 
     } else if (playerSelection === compSelection) {
         console.log(`It\'s a tie! Try again. ${comp} ${player}`)
-        
+
     } else {
         //player win comp lose
         console.log(`You Win! ${playerSelection} beats ${compSelection} ${comp} ${++player}`)
