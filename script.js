@@ -47,18 +47,3 @@ function playRound(playerSelection) {
         }
     } 
 }
-
-
-/*
-function game() {
-    while (comp < 5 && player < 5) {
-        playRound();
-    }
-    if (comp === 5) {
-        console.log(`computer won the game. go suck a sausage!`)
-    } else // if (player === 5)
-    {
-        console.log(`You Won The Game. way to go`)
-    } 
-}
-game();*/
